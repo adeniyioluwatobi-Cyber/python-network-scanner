@@ -1,0 +1,20 @@
+{
+    "target": "127.0.0.1",
+    "port_range": "8080-8083",
+    "timeout": 0.5,
+    "workers": 50,
+    "ports_scanned": 4,
+    "open": 1,
+    "closed": 3,
+    "timeouts": 0,
+    "errors": 0,
+    "time_taken": 0.0051,
+    "open_ports": [
+        {
+            "port": 8080,
+            "status": "OPEN",
+            "service": "HTTP",
+            "banner": "HTTP/1.0 200 OK  Server: SimpleHTTP/0.6 Python/3.14.6  Date: Sat, 03 Oct 2026 23:35:04 GMT  Content-type: text/html; charset=utf-8  Content-Length: 1977"
+        }
+    ]
+}
