@@ -7,20 +7,47 @@ import time
 from concurrent.futures import ThreadPoolExecutor, as_completed
 
 
-# Common port-to-service mapping
+# Expanded common port-to-service mapping
 COMMON_SERVICES = {
+    20: "FTP-Data",
     21: "FTP",
     22: "SSH",
     23: "Telnet",
     25: "SMTP",
     53: "DNS",
+    67: "DHCP",
+    68: "DHCP",
+    69: "TFTP",
     80: "HTTP",
     110: "POP3",
+    111: "RPCbind",
+    119: "NNTP",
+    123: "NTP",
+    135: "MSRPC",
+    137: "NetBIOS-NS",
+    138: "NetBIOS-DGM",
+    139: "NetBIOS-SSN",
     143: "IMAP",
+    161: "SNMP",
+    162: "SNMP-Trap",
+    389: "LDAP",
     443: "HTTPS",
+    445: "SMB",
+    512: "rexec",
+    513: "rlogin",
+    514: "syslog",
+    515: "LPD",
+    631: "IPP",
+    993: "IMAPS",
+    995: "POP3S",
+    1433: "Microsoft SQL Server",
+    1521: "Oracle",
+    2049: "NFS",
     3306: "MySQL",
     3389: "RDP",
     5432: "PostgreSQL",
+    5900: "VNC",
+    6379: "Redis",
     8080: "HTTP",
     8443: "HTTPS",
 }
@@ -71,6 +98,7 @@ def scan_port(target, port, timeout):
     try:
         with socket.socket(socket.AF_INET, socket.SOCK_STREAM) as sock:
             sock.settimeout(timeout)
+
             result = sock.connect_ex((target, port))
 
             if result == 0:
@@ -186,7 +214,7 @@ def main():
         return
 
     print("=" * 50)
-    print("       PYTHON NETWORK SCANNER")
+    print("       PYTHON NETWORK SCANNER v1.1")
     print("=" * 50)
     print(f"Target:  {args.target}")
     print(f"Ports:   {args.start}-{args.end}")
